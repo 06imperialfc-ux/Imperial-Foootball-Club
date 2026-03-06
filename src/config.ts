@@ -334,8 +334,8 @@ export const parallaxGalleryConfig = {
   galleryTitle: "",
   marqueeTexts: [] as string[],
   endCtaText: "",
-  parallaxImagesTop: [] as Array<{ id: number; src: string; alt: string }>,
-  parallaxImagesBottom: [] as Array<{ id: number; src: string; alt: string }>,
+  parallaxImagesTop: [] as Array<{ id: number; src: string; alt: string; title?: string; date?: string; }>,
+  parallaxImagesBottom: [] as Array<{ id: number; src: string; alt: string; title?: string; date?: string; }>,
   galleryImages: [] as Array<{ id: number; src: string; title: string; date: string }>,
 };
 
@@ -362,4 +362,10 @@ export const tourScheduleConfig = {
     status: "on-sale" | "sold-out" | "coming-soon";
     image: string;
   }>,
+};
+
+export const mediaGalleryConfig = {
+  sectionLabel: 'GALLERY',
+  sectionTitle: 'MEDIA',
+  images: [] as Array<{ id: number; src: string; alt: string; title: string; }>
 };
