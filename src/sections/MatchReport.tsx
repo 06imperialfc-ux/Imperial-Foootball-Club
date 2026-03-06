@@ -19,7 +19,12 @@ const MatchReport = () => {
     // Fetch standing from Google Sheets CSV
     const fetchStanding = async () => {
       try {
-        const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vTJgo8jlrBgu1Wk07PrRIjVs94EP9bFMObUXQU34aKK0NqL8bWyW_LrPcaBSf_69qN7bWCrV6oFX3zm/pub?output=csv');
+        // We add a timestamp to the URL and 'no-store' to force a fresh fetch every time
+        const timestamp = new Date().getTime();
+        const response = await fetch(`https://docs.google.com/spreadsheets/d/e/2PACX-1vTJgo8jlrBgu1Wk07PrRIjVs94EP9bFMObUXQU34aKK0NqL8bWyW_LrPcaBSf_69qN7bWCrV6oFX3zm/pub?output=csv&t=${timestamp}`, {
+          cache: 'no-store'
+        });
+        
         const csvText = await response.text();
         
         // Split into rows and clean up empty lines
